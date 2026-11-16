@@ -6,7 +6,7 @@
 
 ## 打开与使用
 
-从 GitHub 的 **Code → Download ZIP** 下载并解压，双击 **启动工具.cmd**（或运行 `py -3 scraper.py gui`）。首次启动时选择两个已存在、互不嵌套、位于同一卷的目录：例如剧集 `D:\Media\Shows`、电影 `D:\Media\Movies`。首次使用建议在测试目录用少量片源试跑。
+从 GitHub 的 **Code → Download ZIP** 下载并解压，双击 **Start-BangumiTagger.cmd**（或运行 `py -3 scraper.py gui`）。首次启动时选择两个已存在、互不嵌套、位于同一卷的目录：例如剧集 `D:\Media\Shows`、电影 `D:\Media\Movies`。首次使用建议在测试目录用少量片源试跑。
 
 默认设置：
 

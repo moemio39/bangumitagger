@@ -182,6 +182,13 @@ class ToolTests(unittest.TestCase):
         ex,p=self.plan(); self.assertTrue(any(e.get('src')==str(special) for e in p['review']))
         ex.apply(); self.assertTrue(special.exists())
 
+    def test_zero_stable_seconds_disables_mtime_gate(self):
+        # Windows can report a new file's timestamp ahead of the process clock.
+        with mock.patch('bgmtool.planner.time.time', return_value=1):
+            self.assertEqual(scan(self.config)['stats']['still_downloading'], 0)
+            config = dict(self.config, stable_seconds=120)
+            self.assertEqual(scan(config)['stats']['still_downloading'], 3)
+
     def test_range_preserved(self):
         self.files[0].rename(self.source/'Test Show [01-02].mkv')
         ex,p=self.plan(); self.assertTrue(any('S01E01-E02' in e['dst'] for e in p['moves']))

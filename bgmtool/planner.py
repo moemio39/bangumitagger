@@ -19,6 +19,7 @@ def valid_nfo(path):
 
 def scan(config):
     roots = roots_from(config)
+    min_age = max(0, int(config.get('stable_seconds', 120)))
     groups = {}; stats = {'videos_seen':0, 'already_scraped':0, 'still_downloading':0}
     for root, kind in zip(roots, ('show', 'movie')):
         for entry in lp(root).iterdir():
@@ -37,7 +38,8 @@ def scan(config):
                 if valid_nfo(p.with_suffix('.nfo')) or (canonical_movie and not is_extra(p, entry)):
                     stats['already_scraped'] += 1
                     continue
-                if lp(p).stat().st_size == 0 or time.time() - lp(p).stat().st_mtime < int(config.get('stable_seconds', 120)):
+                file_stat = lp(p).stat()
+                if file_stat.st_size == 0 or (min_age and time.time() - file_stat.st_mtime < min_age):
                     stats['still_downloading'] += 1
                     continue
                 # Flat releases form one group. Separate nested seasons/releases

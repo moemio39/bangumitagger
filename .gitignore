@@ -1,0 +1,36 @@
+# Runtime state may include personal paths, media names and API responses.
+/data/
+/cache/
+/runs/
+/config.json
+/scan.json
+/selections*.json
+/last-run.json
+/validation.json
+*.jsonl
+.env
+.env.*
+*.local.json
+
+# Python / editor files
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.vscode/
+.idea/
+
+# Keep media and generated metadata out of the repository.
+*.mkv
+*.mp4
+*.avi
+*.mov
+*.ts
+*.m2ts
+*.webm
+*.flac
+*.ass
+*.srt
+*.nfo
+*.zip
+*.7z

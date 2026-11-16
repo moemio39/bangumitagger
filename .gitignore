@@ -1,4 +1,7 @@
 # Runtime state may include personal paths, media names and API responses.
+/_build/
+/.mooncakes/
+pkg.generated.mbti
 /data/
 /cache/
 /runs/

@@ -1,5 +1,8 @@
 * text=auto
 *.cmd text eol=crlf
-*.py text eol=lf
+*.cjs text eol=lf
+*.mbt text eol=lf
+moon.mod text eol=lf
+moon.pkg text eol=lf
 *.md text eol=lf
 *.yml text eol=lf

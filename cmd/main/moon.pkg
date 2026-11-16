@@ -1,0 +1,5 @@
+import {
+  "moemio39/bangumitagger" @tag,
+}
+
+pkgtype(kind: "executable")
